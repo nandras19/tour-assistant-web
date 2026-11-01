@@ -15,6 +15,33 @@ for a 6-year-old?" and get a specific answer with the price and time, in a few
 seconds. If they ask something the business hasn't written down, the assistant
 says so, asks for their email, and the owner gets the question in a list.
 
+## Screenshots
+
+**A question the documents answer.** The widget on the demo homepage. The
+visitor asks whether dogs are allowed on the cemetery tour; the answer comes
+straight from the policies document, including which tours do allow leashed
+dogs, and ends with how to book.
+
+![The chat widget open on the demo homepage, answering a question about dogs on the Hidden Cemetery Tour](media/answer-dogs.png)
+
+**A question the documents don't answer.** A teacher asks about a group
+discount for 30 students. There is no school discount in the documents, so the
+assistant says so, logs the question for the owner, gives the private-tour
+pricing that *is* written down, and asks for an email.
+
+![The assistant explaining there is no listed school discount and asking for the visitor's email](media/answer-school-group.png)
+
+**The visitor adds their email.** The assistant logs the question again with
+the email attached, so the owner has a way to reply.
+
+![The assistant confirming it added the visitor's email to the logged question](media/answer-email-added.png)
+
+**What the owner sees.** `data/inquiries.json` after that conversation: the
+question, the visitor's email once they gave it, and notes with the context
+(group size, that it would need a private tour with two guides).
+
+![data/inquiries.json open in VS Code showing the logged school field trip inquiry with notes and the visitor's email](media/inquiry-log.png)
+
 ## What the owner gets
 
 - Fewer repeat emails. The documents answer them.
