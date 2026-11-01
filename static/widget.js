@@ -10,9 +10,11 @@
   var base = script && script.src ? new URL(script.src).origin : "";
   var API = base + "/api/chat";
 
-  // A random id so the server can keep this visitor's conversation together.
+  // The server assigns a conversation id on the first message. It is kept only in
+  // this variable, so refreshing the page starts a fresh conversation. Nothing is
+  // stored in the visitor's browser.
   var sessionId = null;
-  try { sessionId = localStorage.getItem("ta_session"); } catch (e) {}
+  try { localStorage.removeItem("ta_session"); } catch (e) {}   // clean up ids saved by an older version
 
   // ---- styles -------------------------------------------------------------
   var css = document.createElement("style");
@@ -90,10 +92,7 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         typing.remove();
-        if (data.session_id && data.session_id !== sessionId) {
-          sessionId = data.session_id;
-          try { localStorage.setItem("ta_session", sessionId); } catch (e) {}
-        }
+        if (data.session_id) sessionId = data.session_id;
         add(data.reply || data.error || "Sorry, something went wrong.", "bot");
       })
       .catch(function () {

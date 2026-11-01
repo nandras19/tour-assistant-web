@@ -37,8 +37,9 @@ visitor's browser                 this server (Flask)              Anthropic
 
 - **`server.py`** loads the four documents in `docs/` into Claude's system prompt
   once, with prompt caching so repeat requests cost about a tenth. Each visitor's
-  conversation is kept in memory under a random id the widget stores in their
-  browser. When Claude asks to call `log_inquiry`, the server runs it and sends
+  conversation is kept in memory under a random id that lives only as long as
+  the page is open; a refresh starts a new conversation and nothing is stored in
+  the visitor's browser. When Claude asks to call `log_inquiry`, the server runs it and sends
   the result back, the same loop as the local version.
 - **`static/widget.js`** draws the chat button and panel and posts messages to
   the server. No framework, about 100 lines.
