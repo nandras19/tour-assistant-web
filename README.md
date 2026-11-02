@@ -8,6 +8,14 @@ This is the deployable version of [tour-assistant](https://github.com/nandras19/
 (the Claude Code project) and [tour-assistant-local](https://github.com/nandras19/tour-assistant-local)
 (the hand-written agent loop). Same documents, same rules, same `log_inquiry` tool.
 
+## Demo video
+
+[![Demo: a visitor asks the chat widget questions and the owner sees the logged inquiry](https://img.youtube.com/vi/or8hoGJqh48/maxresdefault.jpg)](https://www.youtube.com/watch?v=or8hoGJqh48)
+
+One minute: a visitor asks the widget a question the documents answer, then
+one they don't, and the owner's inquiry log fills in.
+[Watch on YouTube](https://www.youtube.com/watch?v=or8hoGJqh48).
+
 ## What a visitor sees
 
 A round chat button in the corner of the website. They ask "which tour is good
